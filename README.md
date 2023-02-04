@@ -30,4 +30,27 @@ func MyHelloWorldController(w http.ResponseWriter, r *http.Request) string {
 }
 ```
 
-## Methods available
+## Methods Available
+
+- CSSResponse(w http.ResponseWriter, r *http.Request, body string)
+- CSSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- HTMLResponse(w http.ResponseWriter, r *http.Request, body string)
+- HTMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- JSResponse(w http.ResponseWriter, r *http.Request, body string)
+- JSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- JSONResponse(w http.ResponseWriter, r *http.Request, body string)
+- JSONResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- XMLResponse(w http.ResponseWriter, r *http.Request, body string)
+- XMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+
+## GZip Compressed Methods Available
+- GzipCSSResponse(w http.ResponseWriter, r *http.Request, body string)
+- GzipCSSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- GzipHTMLResponse(w http.ResponseWriter, r *http.Request, body string)
+- GzipHTMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- GzipJSResponse(w http.ResponseWriter, r *http.Request, body string)
+- GzipJSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- GzipJSONResponse(w http.ResponseWriter, r *http.Request, body string)
+- GzipJSONResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
+- GzipXMLResponse(w http.ResponseWriter, r *http.Request, body string)
+- GzipXMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string)
