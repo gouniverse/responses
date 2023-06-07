@@ -18,42 +18,6 @@ func CSSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.Response
 	w.Write([]byte(s))
 }
 
-// HTMLResponse - responds with the HTML body
-func HTMLResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "text/html")
-	w.Write([]byte(body))
-}
-
-// HTMLResponseF - responds with the result from a string returning function
-func HTMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	HTMLResponse(w, r, s)
-}
-
-// JSResponse - responds with the JS body
-func JSResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "application/javascript")
-	w.Write([]byte(body))
-}
-
-// JSResponseF - responds with the result from a string returning function
-func JSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	JSResponse(w, r, s)
-}
-
-// JSONResponseF - responds with the JSON body
-func JSONResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte(body))
-}
-
-// JSONResponseF - responds with the result from a string returning function
-func JSONResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	JSONResponse(w, r, s)
-}
-
 // XMLResponse - responds with the result from a string returning function
 func XMLResponse(w http.ResponseWriter, r *http.Request, body string) {
 	w.Header().Set("Content-Type", "text/xml")
