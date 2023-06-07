@@ -5,31 +5,6 @@ import (
 	"net/http"
 )
 
-// CSSResponse - responds with the CSS body
-func CSSResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "text/css")
-	w.Write([]byte(body))
-}
-
-// CSSResponseF - responds with the result from a string returning function
-func CSSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	w.Header().Set("Content-Type", "text/css")
-	w.Write([]byte(s))
-}
-
-// XMLResponse - responds with the result from a string returning function
-func XMLResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "text/xml")
-	w.Write([]byte(body))
-}
-
-// XMLResponseF - responds with the result from a string returning function
-func XMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	XMLResponse(w, r, s)
-}
-
 // GzipCSSResponse - responds with the CSS body
 func GzipCSSResponse(w http.ResponseWriter, r *http.Request, body string) {
 	w.Header().Set("Content-Type", "text/css")
@@ -42,22 +17,7 @@ func GzipCSSResponse(w http.ResponseWriter, r *http.Request, body string) {
 // GzipCSSResponse - responds with the result from a string returning function
 func GzipCSSResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
 	s := f(w, r)
-	GzipJSResponse(w, r, s)
-}
-
-// GzipHTMLResponse - responds with the HTML body
-func GzipHTMLResponse(w http.ResponseWriter, r *http.Request, body string) {
-	w.Header().Set("Content-Type", "text/html")
-	w.Header().Add("Content-Encoding", "gzip")
-	gz := gzip.NewWriter(w)
-	gz.Write([]byte(body))
-	defer gz.Close()
-}
-
-// GzipHTMLResponse - responds with the result from a string returning function
-func GzipHTMLResponseF(w http.ResponseWriter, r *http.Request, f func(w http.ResponseWriter, r *http.Request) string) {
-	s := f(w, r)
-	GzipHTMLResponse(w, r, s)
+	GzipCSSResponse(w, r, s)
 }
 
 // GzipJSResponse - responds with the JS body
